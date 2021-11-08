@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import './Calculator.css'
 function Header() {
     const [result, setResult] = useState('')
-    
 
-    function display(input) {
-        document.getElementById('output').value += input; //concatenate the input
-    } 
+
+    // function display(input) {
+    //     document.getElementById('output').value += input; //concatenate the input
+    // }
 
     function clear() {
         document.getElementById('output').value = "";
@@ -18,11 +18,11 @@ function Header() {
         //some logic
     }
 
-    function calculate(){
+    function calculate() {
 
-        document.getElementById('output').value=setResult(eval(document.getElementById('output').value))
+        document.getElementById('output').value = setResult(eval(document.getElementById('output').value))
     }
-
+    const display = (e) => { handleInput(e, "value") }
     return (
         <div>
             <table class="calculator" cellspacing="0">
@@ -35,48 +35,48 @@ function Header() {
 
                 </tr>
                 <tr>
-                    <td> <input type="button" class="op" value="+" onClick={e => handleInput(e, "value")}  />
+                    <td> <input type="button" class="op" value="+" onClick={display} />
                     </td>
-                    <td> <input type="button" class="op" value="-"  />
+                    <td> <input type="button" class="op" value="-" onClick={display} />
                     </td>
-                    <td> <input type="button" class="op" value="*" />
+                    <td> <input type="button" class="op" value="*" onClick={display} />
                     </td>
-                    <td> <input type="button" class="op" value="/"  />
-                    </td>
-                </tr>
-                <tr>
-                    <td> <input type="button" class="button" value="7" onClick={e => handleInput(e, "value")} />
-                    </td>
-                    <td> <input type="button" class="button" value="8" onClick={e => handleInput(e, "value")} />
-                    </td>
-                    <td> <input type="button" class="button" value="9"  />
-                    </td>
-                    <td> <input type="button" class="op" value="%" />
+                    <td> <input type="button" class="op" value="/" onClick={display} />
                     </td>
                 </tr>
                 <tr>
-                    <td> <input type="button" class="button" value="4"  />
+                    <td> <input type="button" class="button" value="7" onClick={display} />
                     </td>
-                    <td> <input type="button" class="button" value="5"  />
+                    <td> <input type="button" class="button" value="8" onClick={display} />
                     </td>
-                    <td> <input type="button" class="button" value="6"  />
+                    <td> <input type="button" class="button" value="9" onClick={display} />
+                    </td>
+                    <td> <input type="button" class="op" value="%" onClick={display} />
+                    </td>
+                </tr>
+                <tr>
+                    <td> <input type="button" class="button" value="4" onClick={display} />
+                    </td>
+                    <td> <input type="button" class="button" value="5" onClick={display} />
+                    </td>
+                    <td> <input type="button" class="button" value="6" onClick={display} />
                     </td>
                     <td rowspan="3"><input type="button" class="equals" value="=" onClick={calculate} />
                     </td>
 
                 </tr>
                 <tr>
-                    <td> <input type="button" class="button" value="1"   />
+                    <td> <input type="button" class="button" value="1" onClick={display} />
                     </td>
-                    <td> <input type="button" class="button" value="2"  />
+                    <td> <input type="button" class="button" value="2" onClick={display} />
                     </td>
-                    <td> <input type="button" class="button" value="3"  />
+                    <td> <input type="button" class="button" value="3" onClick={display} />
                     </td>
                 </tr>
                 <tr>
-                    <td> <input type="button" class="button" value="0" />
+                    <td> <input type="button" class="button" value="0" onClick={display} />
                     </td>
-                    <td> <input type="button" class="button" value="."  />
+                    <td> <input type="button" class="button" value="." onClick={display} />
                     </td>
                     <td> <input type="button" class="equals" value="C" onClick={clear} />
                     </td>
